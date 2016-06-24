@@ -40,7 +40,7 @@ public class STRParser extends SubtitleParser {
         while (iter.hasNext()) {
             t = iter.next();
             if (t.matches("\\d+")) {
-                frase.setText(str);
+                frase.setText(StringCorrector.correct(str));
                 super.addFrase(frase);
                 str = "";
                 frase = new SubtitleFrase();
@@ -51,8 +51,7 @@ public class STRParser extends SubtitleParser {
                 str += t + " ";
             }
         }
-        frase.setText(str);
-//        frase.setTimes(toTime(t));
+        frase.setText(StringCorrector.correct(str));
         super.addFrase(frase);
     }
 
@@ -96,6 +95,4 @@ public class STRParser extends SubtitleParser {
         }
         return sub;
     }
-
-//    private Map<SubtitleTime, String> frazes = new HashMap<>();
 }

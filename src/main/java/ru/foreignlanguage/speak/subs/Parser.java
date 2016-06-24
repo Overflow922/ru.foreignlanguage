@@ -5,11 +5,11 @@ package ru.foreignlanguage.speak.subs;/*
  */
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public interface Parser extends Iterable<SubtitleFrase> {
 
     void setFileName(final String fileName);
-
-//    boolean hasNext();
-//    void next(Subtitle out);
+    List<SubtitleFrase> search(String frase);
 }

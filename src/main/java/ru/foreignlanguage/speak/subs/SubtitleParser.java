@@ -15,13 +15,6 @@ import java.util.stream.Stream;
 
 class SubtitleParser implements Parser {
 
-    /*
-    format:
-    00:20:41,150 --> 00:20:45,109
-        - How did he do that?
-        - Made him an offer he couldn't refuse.
-     */
-
     public SubtitleParser(final String fileName) {
         setFileName(fileName);
     }
@@ -62,8 +55,15 @@ class SubtitleParser implements Parser {
         return it;
     }
 
-    public Stream<SubtitleFrase> stream() {
+    protected Stream<SubtitleFrase> stream() {
         return frazes.stream();
+    }
+
+    public List<SubtitleFrase> search(String frase) {
+
+        return frazes.stream().filter((p) -> p.getText().toLowerCase()
+                        .contains(frase.toLowerCase()))
+                       .collect(Collectors.toList());
     }
 
     protected void addFrase(SubtitleFrase frase) {
