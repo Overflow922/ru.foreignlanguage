@@ -12,9 +12,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class STRParser extends SubtitleParser {
+class STRParser extends SubtitleParser {
 
-    public STRParser (final String fileName) {
+    STRParser (final String fileName) {
         super(fileName);
 
         List<String> list = new ArrayList<>();

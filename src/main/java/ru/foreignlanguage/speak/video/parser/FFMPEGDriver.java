@@ -8,7 +8,6 @@ import ru.foreignlanguage.common.Path;
 import ru.foreignlanguage.common.Process;
 import ru.foreignlanguage.speak.subs.Subtitle;
 import ru.foreignlanguage.speak.subs.SubtitleFactory;
-import ru.foreignlanguage.speak.subs.SubtitleFrase;
 
 import java.io.File;
 import java.io.IOException;
@@ -64,13 +63,13 @@ public class FFMPEGDriver implements Driver {
             System.out.println("Done.");
 
             System.out.print("Searching for frase 'Riverrun'.");
-            List<SubtitleFrase> frases = subParser.search("Riverrun");
+            List<Subtitle> frases = subParser.search("Riverrun");
 
             System.out.println(" Found " + frases.size() + " frases. ");
 
             System.out.println("Start saving audio.");
             String concat_str = FFMPEG;
-            for (SubtitleFrase fr: frases) {
+            for (Subtitle fr: frases) {
                 System.out.print("Saving audio for next frase ... ");
                 saveAudioForFrase(fr, Path.getAbsolutePath(absFileName));
                 System.out.println("Done");
@@ -85,7 +84,7 @@ public class FFMPEGDriver implements Driver {
 
     private void saveStreamsFromVideo(final String fileName) throws InterruptedException, IOException {
         try {
-            String q = VIDEO_TO_STREAMS + fileName + " > " + filePath + "/streams.txt";
+            String q = VIDEO_TO_STREAMS + fileName + " > " + filePath + STREAMSTXT;
             Process.execute(q);
         } catch (IOException | InterruptedException e) {
             System.err.println(e.getMessage());

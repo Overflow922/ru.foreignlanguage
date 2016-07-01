@@ -4,8 +4,6 @@ package ru.foreignlanguage.speak.video.parser;/*
 
  */
 
-import ru.foreignlanguage.common.Path;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class VideoParser implements Parser {
+class VideoParser implements Parser {
 //    [STREAM]
 //    index=0
 //    codec_name=h264

@@ -6,7 +6,7 @@ package ru.foreignlanguage.speak.video.parser;/*
 
 import java.nio.file.FileAlreadyExistsException;
 
-interface Driver {
+public interface Driver {
     void setProjectPath(final String filePath, boolean isCreated) throws FileAlreadyExistsException;
 
     void convertVideo(String filename);

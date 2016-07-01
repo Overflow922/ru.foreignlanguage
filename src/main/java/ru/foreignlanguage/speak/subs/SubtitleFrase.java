@@ -4,7 +4,7 @@ package ru.foreignlanguage.speak.subs;
 
  */
 
-public class SubtitleFrase implements Subtitle {
+class SubtitleFrase implements Subtitle {
 
     public void setText(final String text){
         this.text = text;

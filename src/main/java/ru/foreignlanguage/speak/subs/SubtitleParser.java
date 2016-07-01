@@ -45,8 +45,8 @@ class SubtitleParser implements Parser {
     }
 //TODO: test iterator!!!
     @Override
-    public Iterator<SubtitleFrase> iterator() {
-        return new Iterator<SubtitleFrase>() {
+    public Iterator<Subtitle> iterator() {
+        return new Iterator<Subtitle>() {
 
             private int currentIndex = 0;
 
@@ -71,7 +71,7 @@ class SubtitleParser implements Parser {
         return frazes.stream();
     }
 
-    public List<SubtitleFrase> search(String frase) {
+    public List<Subtitle> search(String frase) {
 
         return frazes.stream().filter((p) -> p.getText().toLowerCase()
                         .contains(frase.toLowerCase()))

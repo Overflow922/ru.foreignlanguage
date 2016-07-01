@@ -87,7 +87,7 @@ final class LanguageList {
     }
 
     static String getLanguageShort(final String lang) {
-        String result = "";
+        String result="";
         try {
             if (langs.size() > 0) {
                 if (langs.containsValue(lang)) {

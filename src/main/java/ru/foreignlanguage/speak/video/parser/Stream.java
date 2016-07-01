@@ -10,9 +10,9 @@ package ru.foreignlanguage.speak.video.parser;/*
  */
 
 class Stream {
-    public final static String AUDIO = "audio";
-    public final static String VIDEO = "video";
-    public final static String SUBTITLE = "subtitle";
+    final static String AUDIO = "audio";
+    final static String VIDEO = "video";
+    final static String SUBTITLE = "subtitle";
 
     void setIndex(final int id) { index = id; }
     void setCodecName(final String codecName) { this.codecName = codecName; }
@@ -20,7 +20,7 @@ class Stream {
 
     int getIndex() { return index; }
     String getCodecName() { return codecName; }
-    public String getCodecType() { return codecType; }
+    String getCodecType() { return codecType; }
 
     @Override
     public String toString() {

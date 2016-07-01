@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
 
-public interface Parser extends Iterable<SubtitleFrase> {
+public interface Parser extends Iterable<Subtitle> {
 
     void setFileName(final String fileName);
     String getFileName();
     String getSubLanguage();
-    List<SubtitleFrase> search(String frase);
+    List<Subtitle> search(String frase);
 }

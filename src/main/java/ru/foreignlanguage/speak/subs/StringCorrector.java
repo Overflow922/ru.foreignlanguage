@@ -8,7 +8,7 @@ package ru.foreignlanguage.speak.subs;/*
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringCorrector {
+class StringCorrector {
 
     static String correct(final String str) {
         String res = "";
