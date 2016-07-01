@@ -5,6 +5,7 @@ package ru.foreignlanguage.speak.subs;/*
  */
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -18,14 +19,12 @@ public class STRParser extends SubtitleParser {
 
         List<String> list = new ArrayList<>();
         try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            String filepath = (new File(classLoader.getResource(fileName).getFile())).getPath();
-            list = Files.lines(new File(filepath).toPath())
+            list = Files.lines(new File(fileName).toPath(), StandardCharsets.UTF_8)
                         .filter((p) -> !p.trim().equals(""))
                         .collect(Collectors.toList());
 
         } catch(IOException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
 
         convert(list);
@@ -36,7 +35,7 @@ public class STRParser extends SubtitleParser {
         java.util.Iterator<String> iter = list.iterator();
         String str = "";
         SubtitleFrase frase = new SubtitleFrase();
-        String t = "";
+        String t;
         while (iter.hasNext()) {
             t = iter.next();
             if (t.matches("\\d+")) {

@@ -4,7 +4,7 @@ package ru.foreignlanguage.speak.subs;/*
     Description here
  */
 
-class Time {
+public class Time {
     private int hours;
     private int mins;
     private int seconds;
@@ -23,7 +23,32 @@ class Time {
         return seconds;
     }
 
+    public Time addHour() {
+        hours++;
+        return this;
+    }
+
+    public Time addMinute() {
+        mins ++;
+        if (mins > 60) {
+            mins -= 60;
+            addHour();
+        }
+        return this;
+    }
+
+    public Time addSecond() {
+        seconds++;
+        if (seconds >= 60) {
+            addMinute();
+            seconds -= 60;
+        }
+        return this;
+    }
+
     public String toString() {
-        return hours+":"+mins+":"+seconds;
+        return (hours == 0 ? "00" : hours)+":"
+               +(mins == 0 ? "00" : mins)+":"
+               +(seconds == 0 ? "00" : seconds);
     }
 }

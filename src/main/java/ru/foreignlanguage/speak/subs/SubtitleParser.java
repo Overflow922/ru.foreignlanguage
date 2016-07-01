@@ -1,5 +1,6 @@
 package ru.foreignlanguage.speak.subs;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.stream.Stream;
 
 class SubtitleParser implements Parser {
 
-    public SubtitleParser(final String fileName) {
+    SubtitleParser(final String fileName) {
         setFileName(fileName);
     }
 
@@ -31,9 +32,21 @@ class SubtitleParser implements Parser {
         subs = fileName;
     }
 
+    public String getSubLanguage() {
+        LangDetection langDetect;
+        String res = "";
+        try {
+            langDetect = new LangDetection();
+            res = langDetect.detect(frazes);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return res;
+    }
+//TODO: test iterator!!!
     @Override
     public Iterator<SubtitleFrase> iterator() {
-        Iterator<SubtitleFrase> it = new Iterator<SubtitleFrase>() {
+        return new Iterator<SubtitleFrase>() {
 
             private int currentIndex = 0;
 
@@ -52,7 +65,6 @@ class SubtitleParser implements Parser {
                 throw new UnsupportedOperationException();
             }
         };
-        return it;
     }
 
     protected Stream<SubtitleFrase> stream() {
@@ -66,7 +78,7 @@ class SubtitleParser implements Parser {
                        .collect(Collectors.toList());
     }
 
-    protected void addFrase(SubtitleFrase frase) {
+    void addFrase(SubtitleFrase frase) {
         frazes.add(frase);
     }
 

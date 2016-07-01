@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class StringCorrector {
 
-    static public String correct(final String str) {
+    static String correct(final String str) {
         String res = "";
 
         Pattern p = Pattern.compile("[[\\w+]&&[\\D]]", Pattern.UNICODE_CHARACTER_CLASS);

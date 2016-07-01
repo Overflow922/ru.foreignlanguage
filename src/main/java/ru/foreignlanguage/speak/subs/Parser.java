@@ -7,9 +7,12 @@ package ru.foreignlanguage.speak.subs;/*
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Optional;
 
 public interface Parser extends Iterable<SubtitleFrase> {
 
     void setFileName(final String fileName);
+    String getFileName();
+    String getSubLanguage();
     List<SubtitleFrase> search(String frase);
 }

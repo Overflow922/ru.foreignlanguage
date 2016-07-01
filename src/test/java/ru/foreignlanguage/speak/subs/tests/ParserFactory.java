@@ -27,26 +27,13 @@ public class ParserFactory {
 
     @Test
     public void creation() throws Exception {
-        parser = SubtitleFactory.getInstance().parse("sub-test.str");
+
 
      //   System.out.println(parser);
     }
 
     @Test
     public void search() throws Exception {
-        parser = SubtitleFactory.getInstance().parse("sub-test.str");
-
-        System.out.println(parser.search("")
-                .stream().map(Object::toString)
-                .collect(Collectors.joining(", ")));
-
-        System.out.println(parser.search(" ")
-                .stream().map(Object::toString)
-                .collect(Collectors.joining(", ")));
-
-        System.out.println(parser.search("-")
-                .stream().map(Object::toString)
-                .collect(Collectors.joining(", ")));
     }
 
 }
